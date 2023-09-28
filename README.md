@@ -1,4 +1,9 @@
-# README
+# 2023_nstor_sdr
+
+Makes data and post-processing scripts available for reproducibility to support publication.
+Be aware that the files included here allow to reproduce (for the most part) the results from the publication.
+However, some of the software developed for this publication should be treated as export control and it is not included in this repository.
+
 
 # verification
 
@@ -6,7 +11,7 @@ Files:
 * plots.py: plots figures comparing reference and repeated structures cases
 
 All the following cases contain:
-* mcnp1: MCNP input file
+* mcnp1: MCNP input file for the burnup calculation
 * results_heat_cell991.csv: csv files with delayed heating "H_T" by decay time step
 
 ## reference
@@ -42,8 +47,8 @@ Files:
 * MOAA_burnup_FIMA.csv: MOAA burnup results
 * \*.csv files: contain benchmark data for power, neck shim insertion condition, and control drum angle
 * create_files.py: automates the creation of the input files based on the \*.csv files: 
-  * bench_{cycle}: MCNP input files for each cycle
-  * sdr-agr.i: MCNP input files for the shutdown-dose rate calculations
+  * bench_{cycle}: MCNP input files for each irradiation cycle
+  * sdr-agr.i: creates MCNP geometry for shutdown-dose rate calculation (source is not included as it is calculated by the shutdown-dose rate calculation workflow not included here)
 * plots.py: plots burnup vs axial location and calculates the contribution from each photon source
 
 
@@ -89,3 +94,47 @@ MOAA calculates the depletion of cells:
 
 # micro
 
+Files:
+* input_definition.py: holds several parameters shared by the burnup and shutdown-dose rate geometries.
+* create_input_burnup.py: creates MCNP input file for burnup calculation (only core)
+* create_input_sdr.py: creates MCNP geometry for shutdown-dose rate calculation (source is not included as it is calculated by the shutdown-dose rate calculation workflow not included here)
+
+MOAA calculates the depletion of cells:
+
+Fuel cells:
+20101,20201,20301,20401,20501,
+20601,21101,21201,21301,21401,
+21501,21601,21701,21801,21901,
+22001,22101,22201,23101,23201,
+23301,23401,23501,23601,23701,
+23801,23901,24001,24101,24201,
+24301,24401,24501,24601,24701,
+24801,
+
+Block Graphite:
+20111,20112,20114,20211,20212,
+20214,20311,20312,20314,20411,
+20412,20414,20511,20512,20514,
+20611,20612,20614,21111,21112,
+21114,21211,21212,21214,21311,
+21312,21314,21411,21412,21414,
+21511,21512,21514,21611,21612,
+21614,21711,21712,21714,21811,
+21812,21814,21911,21912,21914,
+22011,22012,22014,22111,22112,
+22114,22211,22212,22214,23111,
+23112,23114,23211,23212,23214,
+23311,23312,23314,23411,23412,
+23414,23511,23512,23514,23611,
+23612,23614,23711,23712,23714,
+23811,23812,23814,23911,23912,
+23914,24011,24012,24014,24111,
+24112,24114,24211,24212,24214,
+24311,24312,24314,24411,24412,
+24414,24511,24512,24514,24611,
+24612,24614,24711,24712,24714,
+24811,24812,24814,
+
+Reflector:
+9990,9991,9992,9993,9994,
+9995,
