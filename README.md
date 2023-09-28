@@ -1,5 +1,7 @@
 # 2023_nstor_sdr
 
+[![DOI](https://zenodo.org/badge/697943028.svg)](https://zenodo.org/badge/latestdoi/697943028)
+
 Makes data and post-processing scripts available for reproducibility to support publication.
 Be aware that the files included here allow to reproduce (for the most part) the results from the publication.
 However, some of the software developed for this publication should be treated as export control and it is not included in this repository.
